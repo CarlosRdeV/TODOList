@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -29,15 +30,30 @@ class MainActivity : AppCompatActivity() {
 
         private val mContext : Context
 
+        private val nombres = arrayListOf<String>(
+            "Pikachu","Charmander","Squirtle","Bulbasaur"
+        )
+
         init {
             mContext = context
         }
 
         //Responsable de mostrar cada una de las filas
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val textView = TextView(mContext)
-            textView.text = "Esta es la fila de mi TextView"
-            return textView
+        val layoutInflater = LayoutInflater.from(mContext)
+        val row_main = layoutInflater.inflate(R.layout.row_main,null,false)
+
+        val positionTextView = row_main.findViewById<TextView>(R.id.position_textView)
+       positionTextView.text = "Row Number: $position"
+
+            val nameTextView = row_main.findViewById<TextView>(R.id.name_textView)
+            nameTextView.text = nombres.get(position)
+
+
+            return row_main
+            //val textView = TextView(mContext)
+        //    textView.text = "Esta es la fila de mi TextView"
+        //    return textView
         }
 
         //Ignotar por ahora
@@ -52,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         //Responsable de cuantas filas voy a tener en mi lista
         override fun getCount(): Int {
-        return 5
+        return nombres.size
         }
 
     }
