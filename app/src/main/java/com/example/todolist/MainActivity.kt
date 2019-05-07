@@ -4,13 +4,11 @@ import android.content.Context
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.CheckBox
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -60,6 +58,11 @@ class MainActivity : AppCompatActivity() {
         //val color = Color.parseColor("#FF0000")
         //listView.setBackgroundColor(color)
         listView.adapter = MyAdapter(this,actividades)
+
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Toast.makeText(this,"Suma",Toast.LENGTH_LONG).show()
+        }
 
     }
 
@@ -113,4 +116,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 }
