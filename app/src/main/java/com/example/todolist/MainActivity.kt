@@ -1,6 +1,7 @@
 package com.example.todolist
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -60,8 +61,11 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = MyAdapter(this,actividades)
 
         val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Toast.makeText(this,"Suma",Toast.LENGTH_LONG).show()
+        fab.setOnClickListener {
+              val intent = Intent(this,AddActivity::class.java)
+                startActivity(intent)
+                //view ->
+            //Toast.makeText(this,"Suma",Toast.LENGTH_LONG).show()
         }
 
     }
