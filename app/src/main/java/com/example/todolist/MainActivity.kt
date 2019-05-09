@@ -43,17 +43,8 @@ class MainActivity : AppCompatActivity() {
         actividad5.descripcion="También necesitas para tiempo de calidad con tu familia y amigos. Olvidate del trabajo, esto renueva energias"
         actividad5.estado=false
 
-        var actividad11 = Actividad()
-        actividad11.nombre="Leer"
-        actividad11.descripcion="Leer es el hábito que te impulsará. Pues te da acceso a las ideas, errores y experiencias de los éxitosos"
-        actividad11.estado=false
 
-        var actividad12 = Actividad()
-        actividad12.nombre="Leer"
-        actividad12.descripcion="Leer es el hábito que te impulsará. Pues te da acceso a las ideas, errores y experiencias de los éxitosos"
-        actividad12.estado=false
-
-        var actividades = arrayListOf<Actividad>(actividad1,actividad2,actividad3,actividad4,actividad5,actividad11,actividad12)
+        var actividades = arrayListOf<Actividad>(actividad1,actividad2,actividad3,actividad4,actividad5)
 
         val listView = findViewById<ListView>(R.id.main_listview)
         //val color = Color.parseColor("#FF0000")
