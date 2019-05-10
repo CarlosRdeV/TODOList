@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*
         var actividad1 = Actividad()
         actividad1.nombre="Leer"
         actividad1.descripcion="Leer es el hábito que te impulsará. Pues te da acceso a las ideas, errores y experiencias de los éxitosos"
@@ -42,29 +43,37 @@ class MainActivity : AppCompatActivity() {
         actividad5.nombre="Disfrutar"
         actividad5.descripcion="También necesitas para tiempo de calidad con tu familia y amigos. Olvidate del trabajo, esto renueva energias"
         actividad5.estado=false
+        */
 
 
-        var actividades = arrayListOf<Actividad>(actividad1,actividad2,actividad3,actividad4,actividad5)
+        //var actividades = arrayListOf<Actividad>()
+
+
+
+        //var actividades = arrayListOf<Actividad>(actividad1,actividad2,actividad3,actividad4,actividad5)
+        //Constantes.actividades=actividades
+
+
 
         val listView = findViewById<ListView>(R.id.main_listview)
-        //val color = Color.parseColor("#FF0000")
-        //listView.setBackgroundColor(color)
-        listView.adapter = MyAdapter(this,actividades)
+        listView.adapter = MyAdapter(this, Constantes.actividades!!)
 
+        //Float Button
         val fab: View = findViewById(R.id.fab)
         fab.setOnClickListener {
               val intent = Intent(this,AddActivity::class.java)
                 startActivity(intent)
-                //view ->
-            //Toast.makeText(this,"Suma",Toast.LENGTH_LONG).show()
+            finish()
         }
 
     }
 
-    private class MyAdapter(context: Context, actividades: ArrayList<Actividad> ) : BaseAdapter(){
+
+
+    private class MyAdapter(context: Context, actividades: ArrayList<Actividad>? ) : BaseAdapter(){
 
         private val mContext : Context
-        private val actividades = actividades
+        private var actividades = actividades
 
         init {
             mContext = context
@@ -92,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         //    return textView
         }
 
-        //Ignotar por ahora
+        //Ignorar por ahora
         override fun getItem(position: Int): Any {
         return  "TEST STRING"
         }

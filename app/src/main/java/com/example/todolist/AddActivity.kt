@@ -4,7 +4,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add.*
 
@@ -26,10 +25,19 @@ class AddActivity : AppCompatActivity() {
             actividad.descripcion = txtdescripcion.text.toString()
             actividad.estado=false
 
-            Toast.makeText(this,actividad.toString(),Toast.LENGTH_LONG).show()
+            agregarActividad(Constantes.actividades,actividad)
+
+            //Toast.makeText(this,actividad.toString(),Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Se ha añadido la Actividad",Toast.LENGTH_LONG).show()
+
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    fun agregarActividad(actividades: ArrayList<Actividad>?, actividad: Actividad)
+    {
+        actividades?.add(actividad)
     }
 }
